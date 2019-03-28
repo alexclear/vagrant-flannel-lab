@@ -1,0 +1,23 @@
+docker_use_flannel: True
+apt_key_url: "https://download.docker.com/linux/ubuntu/gpg"
+use_distro_packaging: no
+etcd_name: "{{ ansible_hostname }}"
+etcd_iface: eth1
+flannel_network_iface: eth1
+flannel_cluster_name: test
+flannel_etcd_prefix: /flannel/testnetwork
+flannel_etcdctl: /opt/etcd-v3.3.12-linux-amd64/etcdctl
+flannel_secure: no
+flannel_etcd_discover:
+  ty: static
+  port: 2379
+  hosts:
+    - 172.16.137.142
+    - 172.16.137.143
+    - 172.16.137.144
+flannel_cidr:
+  Network: 172.20.0.0/16
+  SubnetLen: 24
+  Backend:
+    Type: vxlan
+    VNI: 1

@@ -1,0 +1,13 @@
+[flannel1]
+flannel1 ansible_host=172.16.137.142 etcd_ip=172.16.137.142
+
+[flannel2]
+flannel2 ansible_host=172.16.137.143 etcd_ip=172.16.137.143
+
+[flannel3]
+flannel3 ansible_host=172.16.137.144 etcd_ip=172.16.137.144
+
+[etcd:children]
+flannel1
+flannel2
+flannel3

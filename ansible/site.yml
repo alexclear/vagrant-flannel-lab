@@ -1,0 +1,7 @@
+- hosts: etcd
+  become: yes
+  roles:
+  - role: etcd
+  - role: andrewrothstein.flannel
+  - role: andrewrothstein.flannel-cluster
+  - role: docker-io
